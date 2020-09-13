@@ -1774,9 +1774,9 @@ endif()
 #
 if(EMSCRIPTEN)
 	if(LOVEJS_COMPAT)
-		add_definitions("-s USE_SDL=2 -s FULL_ES2=1 -s INVOKE_RUN=0 --post-js ${CMAKE_CURRENT_SOURCE_DIR}/src/scripts/EmscriptenPersistence.js")
+		add_definitions("-s FORCE_FILESYSTEM=1 -s USE_SDL=2 -s FULL_ES2=1 -s INVOKE_RUN=0 --post-js ${CMAKE_CURRENT_SOURCE_DIR}/src/scripts/EmscriptenPersistence.js")
 	else()
-		add_definitions("-s USE_PTHREADS=1 -s PTHREAD_POOL_SIZE=8 -s USE_SDL=2 -s FULL_ES2=1 -s INVOKE_RUN=0 --post-js ${CMAKE_CURRENT_SOURCE_DIR}/src/scripts/EmscriptenPersistence.js")
+		add_definitions("-s FORCE_FILESYSTEM=1 -s USE_PTHREADS=1 -s PTHREAD_POOL_SIZE=8 -s USE_SDL=2 -s FULL_ES2=1 -s INVOKE_RUN=0 --post-js ${CMAKE_CURRENT_SOURCE_DIR}/src/scripts/EmscriptenPersistence.js")
 	endif()
 
 	add_executable(${LOVE_EXE_NAME} src/love.cpp)	
